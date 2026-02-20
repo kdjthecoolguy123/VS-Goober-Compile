@@ -66,7 +66,7 @@ class MainMenuStateNew extends MusicBeatState{
             }
         }
 
-        if (controls.UI_ACCEPT_P) {
+        if (controls.ACCEPT) {
             selectionConfirm = true;
             FlxG.sound.play(Paths.sound('confirmMenu'));
             FlxFlicker.flicker(button[button_id - 1], 1.1, 0.05, false);
@@ -83,7 +83,7 @@ class MainMenuStateNew extends MusicBeatState{
             };
         }
 
-        if (controls.UI_BACK_P) {
+        if (controls.BACK) {
             FlxG.sound.play(Paths.sound('cancelMenu'));
             MusicBeatState.switchState(new TitleState());
         }
