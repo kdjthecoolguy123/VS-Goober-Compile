@@ -18,12 +18,10 @@ class MainMenuStateNew extends MusicBeatState{
 
         var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
-        bg.cameras = [camHUD];
         add(bg);
 
         gooberVer = new FlxText(12, FlxG.height - 24, 0, "VS Goober V1.0 Build", 10);
         gooberVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        gooberVer.cameras = [camHUD];
         add(gooberVer);
 
         for (i in 0...4) {
@@ -33,7 +31,6 @@ class MainMenuStateNew extends MusicBeatState{
             button[i].animation.addByPrefix("unselected", "section_unselected", 16);
             button[i].animation.addByPrefix("selected", "section_selected", 16);
             button[i].antialiasing = ClientPrefs.data.antialiasing;
-            button[i].cameras = [camHUD];
             add(button[i]);
 
             if (i == 0) {
