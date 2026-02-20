@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="mainMenu_button_1.png">
+    <SubTexture name="section_unselected0000" x="0" y="0" width="225" height="225"/>
+    <SubTexture name="section_selected0000" x="225" y="0" width="225" height="225"/>
+</TextureAtlas>
