@@ -14,8 +14,8 @@ class MainMenuStateNew extends MusicBeatState{
     var gooberVer:FlxText;
     var selectionConfirm:Bool = false;
 
-    override function create() {
-
+    override function create() 
+    {
         var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
         add(bg);
@@ -49,7 +49,9 @@ class MainMenuStateNew extends MusicBeatState{
         }
     }
 
-    override function update() {
+	override function update(elapsed: Float) {
+		super.update(elapsed);
+        
         selectLogic();
 
         button[button_id - 1].scale.set(1.2, 1.2);
