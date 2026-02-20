@@ -20,7 +20,7 @@ class MainMenuStateNew extends MusicBeatState{
         bg.antialiasing = ClientPrefs.data.antialiasing;
         add(bg);
 
-        gooberVer = new FlxText(12, FlxG.height - 24, 0, "VS Goober V1.0 Build", 10);
+        gooberVer = new FlxText(12, FlxG.height - 24, 0, "VS Goober V1.0 [DEV BUILD]", 10);
         gooberVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(gooberVer);
 
@@ -30,7 +30,7 @@ class MainMenuStateNew extends MusicBeatState{
             button[i].frames = Paths.getSparrowAtlas(path + "mainMenu_button_" + Std.string(i));
             button[i].animation.addByPrefix("unselected", "section_unselected", 16);
             button[i].animation.addByPrefix("selected", "section_selected", 16);
-            button[i].antialiasing = ClientPrefs.data.antialiasing;
+            button[i].antialiasing = true;
             add(button[i]);
 
             if (i == 0) {
@@ -51,7 +51,7 @@ class MainMenuStateNew extends MusicBeatState{
 
 	override function update(elapsed: Float) {
 		super.update(elapsed);
-        
+
         selectLogic();
 
         button[button_id - 1].scale.set(1.2, 1.2);
@@ -71,8 +71,7 @@ class MainMenuStateNew extends MusicBeatState{
         if (controls.ACCEPT) {
             selectionConfirm = true;
             FlxG.sound.play(Paths.sound('confirmMenu'));
-            FlxFlicker.flicker(button[button_id - 1], 1.1, 0.05, false);
-            {
+            FlxFlicker.flicker(button[button_id - 1], 1.1, 0.05, true, function(_) {
                 if (button_id == 1) {
                     MusicBeatState.switchState(new StoryMenuState());
                 } else if (button_id == 2) {
@@ -82,13 +81,18 @@ class MainMenuStateNew extends MusicBeatState{
                 } else if (button_id == 4) {
                     MusicBeatState.switchState(new CreditsState());
                 }
-            };
+            });
         }
 
         if (controls.BACK) {
             FlxG.sound.play(Paths.sound('cancelMenu'));
             MusicBeatState.switchState(new TitleState());
         }
+
+        if (controls.justPressed('debug_1')) {
+			FlxG.mouse.visible = false;
+			MusicBeatState.switchState(new MasterEditorMenu());
+		}
     }
 
     function selectLogic() {

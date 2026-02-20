@@ -4,7 +4,7 @@ import backend.WeekData;
 
 import objects.Character;
 
-import states.MainMenuState;
+import states.MainMenuStateNew;
 import states.FreeplayState;
 
 class MasterEditorMenu extends MusicBeatState
@@ -99,7 +99,7 @@ class MasterEditorMenu extends MusicBeatState
 
 		if (controls.BACK)
 		{
-			MusicBeatState.switchState(new MainMenuState());
+			MusicBeatState.switchState(new MainMenuStateNew());
 		}
 
 		if (controls.ACCEPT)
