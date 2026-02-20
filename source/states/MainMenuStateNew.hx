@@ -1,5 +1,6 @@
 package states;
 import flixel.effects.FlxFlicker;
+import states.editors.MasterEditorMenu;
 import options.OptionsState;
 
 class MainMenuStateNew extends MusicBeatState{
