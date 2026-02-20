@@ -72,7 +72,8 @@ class MainMenuStateNew extends MusicBeatState{
         if (controls.UI_ACCEPT_P) {
             selectionConfirm = true;
             FlxG.sound.play(Paths.sound('confirmMenu'));
-            FlxFlicker.flicker(button[button_id - 1], 1.1, 0.05, false){
+            FlxFlicker.flicker(button[button_id - 1], 1.1, 0.05, false);
+            {
                 if (button_id == 1) {
                     MusicBeatState.switchState(new StoryMenuState());
                 } else if (button_id == 2) {
