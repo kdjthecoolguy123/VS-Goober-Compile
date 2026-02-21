@@ -1,5 +1,8 @@
 package states;
+
 import flixel.effects.FlxFlicker;
+import openfl.display.BlendMode;
+
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 
@@ -20,6 +23,11 @@ class MainMenuStateNew extends MusicBeatState{
         var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
         add(bg);
+
+        bg_grid = new FlxSprite(-8, -12).loadGraphic(Paths.image(path + "mainMenu_grid"));
+        bg_grid.scale.set(1.5, 1.5);
+        bg_grid.alpha = 0.25;
+        add(bg_grid);
 
         gooberVer = new FlxText(12, FlxG.height - 24, 0, "VS Goober V1.0 [DEV BUILD]", 10);
         gooberVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -54,6 +62,17 @@ class MainMenuStateNew extends MusicBeatState{
 		super.update(elapsed);
 
         selectLogic();
+
+        bg_grid.x -= 1;
+        bg_grid.y += 0.3;
+
+        if (bg_grid.x <= -108){
+            bg_grid.x = -12;
+        }
+
+        if (bg_grid.y >= 96){
+            bg_grid.y = 0;
+        }
 
         button[button_id - 1].scale.set(1.2, 1.2);
         button[button_id - 1].animation.play("selected");
