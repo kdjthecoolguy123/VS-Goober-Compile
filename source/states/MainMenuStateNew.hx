@@ -89,31 +89,33 @@ class MainMenuStateNew extends MusicBeatState{
             }
         }
 
-        if (controls.ACCEPT) {
-            selectionConfirm = true;
-            FlxG.sound.play(Paths.sound('confirmMenu'));
-            FlxFlicker.flicker(button[button_id - 1], 1.1, 0.05, true, function(_) {
-                if (button_id == 1) {
-                    MusicBeatState.switchState(new StoryMenuState());
-                } else if (button_id == 2) {
-                    MusicBeatState.switchState(new FreeplayState());
-                } else if (button_id == 3) {
-                    MusicBeatState.switchState(new OptionsState());
-                } else if (button_id == 4) {
-                    MusicBeatState.switchState(new CreditsState());
-                }
-            });
-        }
+        if (!= selectionConfirm) {
+            if (controls.ACCEPT) {
+                selectionConfirm = true;
+                FlxG.sound.play(Paths.sound('confirmMenu'));
+                FlxFlicker.flicker(button[button_id - 1], 1.1, 0.05, true, function(_) {
+                    if (button_id == 1) {
+                        MusicBeatState.switchState(new StoryMenuState());
+                    } else if (button_id == 2) {
+                        MusicBeatState.switchState(new FreeplayState());
+                    } else if (button_id == 3) {
+                        MusicBeatState.switchState(new OptionsState());
+                    } else if (button_id == 4) {
+                        MusicBeatState.switchState(new CreditsState());
+                    }
+                });
+            }
 
-        if (controls.BACK) {
-            FlxG.sound.play(Paths.sound('cancelMenu'));
-            MusicBeatState.switchState(new TitleState());
-        }
+            if (controls.BACK) {
+                FlxG.sound.play(Paths.sound('cancelMenu'));
+                MusicBeatState.switchState(new TitleState());
+            }
 
-        if (controls.justPressed('debug_1')) {
-			FlxG.mouse.visible = false;
-			MusicBeatState.switchState(new MasterEditorMenu());
-		}
+            if (controls.justPressed('debug_1')) {
+                FlxG.mouse.visible = false;
+                MusicBeatState.switchState(new MasterEditorMenu());
+            }
+        }
     }
 
     function selectLogic() {
