@@ -10,18 +10,18 @@ class MainMenuStateNew extends MusicBeatState{
     var path:String = "mainmenunew/";
 
     var bg:FlxSprite;
+    var bg_grid:FlxSprite;
+    
     var button:Array<FlxSprite> = [];
     var button_id:Int = 0;
     var button_id_X = 0;
     var button_id_Y = 0;
-    var bg_grid:FlxSprite;
 
-    var gooberVer:FlxText;
     var selectionConfirm:Bool = false;
 
     override function create() 
     {
-        var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBG'));
+        bg = new FlxSprite().loadGraphic(Paths.image('menuBG'));
         bg.antialiasing = ClientPrefs.data.antialiasing;
         add(bg);
 
@@ -30,7 +30,11 @@ class MainMenuStateNew extends MusicBeatState{
         bg_grid.alpha = 0.25;
         add(bg_grid);
 
-        gooberVer = new FlxText(12, FlxG.height - 24, 0, "VS Goober V1.0 [DEV BUILD]", 10);
+        var gooberVer:FlxText = new FlxText(12, FlxG.height - 12, 0, "Thank you, BobbbyOfficial!", );
+        gooberVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        add(gooberVer);
+
+        var gooberVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "VS Goober V1.0 [DEV BUILD]", );
         gooberVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(gooberVer);
 
