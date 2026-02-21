@@ -89,7 +89,7 @@ class MainMenuStateNew extends MusicBeatState{
             }
         }
 
-        if (!= selectionConfirm) {
+        if (!selectionConfirm) {
             if (controls.ACCEPT) {
                 selectionConfirm = true;
                 FlxG.sound.play(Paths.sound('confirmMenu'));
