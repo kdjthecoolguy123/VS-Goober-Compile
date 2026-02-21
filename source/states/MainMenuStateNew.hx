@@ -14,6 +14,7 @@ class MainMenuStateNew extends MusicBeatState{
     var button_id:Int = 0;
     var button_id_X = 0;
     var button_id_Y = 0;
+    var bg_grid:FlxSprite;
 
     var gooberVer:FlxText;
     var selectionConfirm:Bool = false;
