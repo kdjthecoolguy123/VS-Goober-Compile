@@ -30,9 +30,9 @@ class MainMenuStateNew extends MusicBeatState{
         bg_grid.alpha = 0.25;
         add(bg_grid);
 
-        var gooberVer:FlxText = new FlxText(12, FlxG.height - 12, 0, "Thank you, BobbbyOfficial!", );
-        gooberVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        add(gooberVer);
+        var thankYou:FlxText = new FlxText(12, FlxG.height - 12, 0, "Thank you, BobbbyOfficial!", );
+        thankYou.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        add(thankYou);
 
         var gooberVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "VS Goober V1.0 [DEV BUILD]", );
         gooberVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
